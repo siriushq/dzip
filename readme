@@ -1,0 +1,18 @@
+siriushq/dzip
+=============
+
+	Minimal tool for comparing the difference between ZIP archives.
+	To use it, run the following terminal commands:
+
+	1. Install Bun (or another npm-compatible runtime):
+	   on Windows     [powershell -c "irm bun.sh/install.ps1 | iex"]
+	   on Linux & Mac [curl -fsSL https://bun.sh/install | bash]
+
+	2. run dzip without installation using bunx:
+	   [bunx @siriushq/dzip]
+
+	3. optionally, install globally:
+	   [bun i -g @siriushq/dzip] and then run [dzip]
+
+	dzip does not care about the file extension of the provided path.
+	for example, a JVM JAR file can be supplied to this tool.

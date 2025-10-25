@@ -1,9 +1,5 @@
-/**
- * A simple tool for comparing the difference between ZIP archives.
- * @example `dzip test.zip different.zip`
- */
-///<reference path="../node_modules/@types/node/index.d.ts"/>
-///<reference path="../node_modules/chalk/source/index.d.ts"/>
+///<reference path="./node_modules/@types/node/index.d.ts"/>
+///<reference path="./node_modules/chalk/source/index.d.ts"/>
 
 import { accessSync, statSync, writeFileSync, PathLike, Stats } from "fs";
 import chalk from "chalk";
@@ -12,25 +8,19 @@ import create from "prompt-sync";
 import Zip from "adm-zip";
 import treeify from "treeify";
 
-/**
- * Exits the program.
- */
+/** Exits the program. */
 const exit = (code: number): true => process.exit(code);
 
-/**
- * Sends an invalid usage message and kills the program.
- */
+/** Sends an invalid usage message and kills the program. */
 const invalidUsage = (): void => {
 	console.log(chalk.redBright("Usage: dzip <first> <second> [-t, -tree]"));
 	console.log(chalk.redBright("       [-t, -tree] Renders differences in a tree instead of a list."));
 	console.log(chalk.redBright("Example: dzip test.zip different.zip"));
-	console.log(chalk.yellowBright.italic("A simple tool for comparing the difference between ZIP archives."));
+	console.log(chalk.yellowBright.italic("Minimal tool for comparing the difference between ZIP archives."));
 	exit(-1);
 }
 
-/**
- * Check if the provided directory exists, and throw an error if not.
- */
+/** Check if the provided directory exists, and throw an error if not. */
 const assertDirectory = (...paths: PathLike[]): void => {
 	paths.forEach((path: PathLike) => {
 		try {
@@ -43,9 +33,7 @@ const assertDirectory = (...paths: PathLike[]): void => {
 	});
 }
 
-/**
- * Creates a tree representation from the provided list of "/" seperated paths.
- */
+/** Creates a tree representation from the provided list of "/" seperated paths. */
 const tree = (paths: string[]): string => {
 	const result = {};
 	paths.forEach(path => {
@@ -62,9 +50,7 @@ const tree = (paths: string[]): string => {
 	return treeify.asTree(result, true);
 }
 
-/**
- * Return the file size for the provided file.
- */
+/** Return the file size for the provided file. */
 const getSize = (path: PathLike): number | bigint => {
 	const stats: Stats = statSync(path);
 	return stats.size;

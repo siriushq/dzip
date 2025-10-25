@@ -1,0 +1,40 @@
+{
+	"name": "@siriushq/dzip",
+	"version": "1.0",
+	"description": "minimal tool for comparing the difference between ZIP archives",
+	"main": "./index.js",
+	"type": "commonjs",
+	"private": false,
+	"scripts": {
+		"build": "esbuild index.ts --bundle --platform=node --banner:js=\"#!/usr/bin/env node\" --target=node14 --outdir=."
+	},
+	"bin": {
+		"dzip": "./index.js"
+	},
+	"keywords": [
+		"zip",
+		"archive",
+		"diff"
+	],
+	"author": "@siriushq <www.sirius.cam>",
+	"license": "BSD-3-Clause",
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/siriushq/dzip.git"
+	},
+	"bugs": {
+		"url": "https://github.com/siriushq/dzip/issues"
+	},
+	"homepage": "https://github.com/siriushq/dzip#readme",
+	"dependencies": {
+		"adm-zip": "^0.5.10",
+		"chalk": "^5.2.0",
+		"prompt-sync": "^4.2.0",
+		"strip-ansi": "^7.1.0",
+		"treeify": "^1.1.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.3.1",
+		"esbuild": "^0.18.6"
+	}
+}
